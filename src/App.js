@@ -23,9 +23,6 @@ export default function App() {
   const rows = grid.length;
   const columns = grid[0]?.length || 0;
 
-  const rows = grid.length;
-  const columns = grid[0]?.length || 0;
-
   const addRow = () => {
     if (grid.length === 0) {
       setGrid([[" "]]);

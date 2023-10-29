@@ -28,6 +28,13 @@ export default function App() {
     }
   };
 
+  const removeRow = () => {
+    if (grid.length === 0) return
+    const newGrid = [...grid];
+    newGrid.pop();
+    setGrid(newGrid);
+  }
+
   const addColumn = () => {
     if (grid.length === 0) {
       setGrid([[" "]]);
@@ -37,11 +44,23 @@ export default function App() {
     }
   };
 
+  const removeColumn = () => {
+    if (grid.length === 0) return
+    const newGrid = grid.map((row) => {
+      const newRow = [...row];
+      newRow.pop();
+      return newRow;
+    });
+    setGrid(newGrid[0].length === 0 ? [] : newGrid);
+  }
+
   return (
     <div className="game">
       <div>
         <button onClick={addRow}>Add Row</button>
         <button onClick={addColumn}>Add Column</button>
+        <button onClick={removeRow}>Remove Row</button>
+        <button onClick={removeColumn}>Remove Column</button>
       </div>
       <Grid grid={grid} />
     </div>

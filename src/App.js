@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
-function Grid({ grid }) {
+function Grid({ grid, onClick }) {
   return (
     <div className="board">
       {grid.map((row, rowIndex) => (
         <div className="board-row" key={rowIndex}>
           {row.map((cell, cellIndex) => (
-            <button className="square" key={cellIndex}>
+            <button className="square" key={cellIndex} onClick={onClick}>
               {cell}
             </button>
           ))}
@@ -18,6 +18,10 @@ function Grid({ grid }) {
 
 export default function App() {
   const [grid, setGrid] = useState([]);
+  const [color, setColor] = useState("#000000");
+
+  const rows = grid.length;
+  const columns = grid[0]?.length || 0;
 
   const rows = grid.length;
   const columns = grid[0]?.length || 0;
@@ -57,6 +61,14 @@ export default function App() {
     setGrid(newGrid[0].length === 0 ? [] : newGrid);
   }
 
+  const changeColor = (event) => {
+    setColor(event.target.value);
+  }
+
+  const onClickCell = (event) => {
+    event.target.style.backgroundColor = color;
+  }
+
   return (
     <div className="game">
       <div className="menus">
@@ -65,8 +77,9 @@ export default function App() {
         <button onClick={addColumn}>Add Column</button>
         <button onClick={removeRow}>Remove Row</button>
         <button onClick={removeColumn}>Remove Column</button>
+        <input type="color" onInput={changeColor} />
       </div>
-      <Grid grid={grid} />
+      <Grid grid={grid} onClick={onClickCell} />
     </div>
   );
 }

@@ -112,3 +112,33 @@ body {
 .game-info {
   margin-left: 20px;
 }
+
+.menus button {
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background-color: #007BFF;
+  color: white;
+  border-radius: 4px;
+}
+
+.menus button:hover, .color-button-wrapper:hover button  {
+  background-color: #0056b3;
+}
+
+.color-button-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.hidden-color-picker {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}

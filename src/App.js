@@ -74,7 +74,6 @@ export default function App() {
         <button onClick={addColumn}>Add Column</button>
         <button onClick={removeRow}>Remove Row</button>
         <button onClick={removeColumn}>Remove Column</button>
-        <input type="color" onInput={changeColor} />
         <div className="color-button-wrapper">
             <button id="colorPickerButton" className="color-button">Pick Color</button>
             <input id="colorPicker" type="color" className="hidden-color-picker" onInput={changeColor} />

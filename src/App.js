@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 function Grid({ grid }) {
   return (
-    <div>
+    <div className="board">
       {grid.map((row, rowIndex) => (
         <div className="board-row" key={rowIndex}>
           {row.map((cell, cellIndex) => (
@@ -18,6 +18,9 @@ function Grid({ grid }) {
 
 export default function App() {
   const [grid, setGrid] = useState([]);
+
+  const rows = grid.length;
+  const columns = grid[0]?.length || 0;
 
   const addRow = () => {
     if (grid.length === 0) {
@@ -39,7 +42,8 @@ export default function App() {
 
   return (
     <div className="game">
-      <div>
+      <div className="menus">
+        <span>{`R: ${rows}`} / {`C: ${columns}`}</span>
         <button onClick={addRow}>Add Row</button>
         <button onClick={addColumn}>Add Column</button>
       </div>

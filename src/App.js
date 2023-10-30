@@ -86,6 +86,11 @@ export default function App() {
     event.target.style.backgroundColor = color;
   }
 
+  const colorAll = () => {
+    const updatedGrid = grid.map((row) => row.map(() => color));
+    setGrid(updatedGrid);
+  }
+
   return (
     <div className="game">
       <div className="menus">
@@ -97,9 +102,10 @@ export default function App() {
         <div className="color-button-wrapper">
             <button id="colorPickerButton" className="color-button">Pick Color</button>
             <input id="colorPicker" type="color" className="hidden-color-picker" onInput={changeColor} />
-        </div>  
+        </div>
+        <button onClick={colorAll}>Color All Cells</button>  
       </div>
-      <Grid grid={grid} onClick={onClickCell} />
+      <Grid grid={grid} color={color} onClick={onClickCell}/>
     </div>
   );
 }

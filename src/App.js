@@ -18,7 +18,7 @@ function Grid({ grid, onClick }) {
 
 export default function App() {
   const [grid, setGrid] = useState([]);
-  const [color, setColor] = useState("#000000");
+  const [color, setColor] = useState("#007BFF");
 
   const rows = grid.length;
   const columns = grid[0]?.length || 0;

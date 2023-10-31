@@ -18,6 +18,7 @@ function Grid({ grid, onClick }) {
 export default function App() {
   const [grid, setGrid] = useState([]);
   const [color, setColor] = useState("#007BFF");
+  const[cellsColored, setCellsColored] = useState(false);
 
   const rows = grid.length;
   const columns = grid[0]?.length || 0;
@@ -92,6 +93,14 @@ export default function App() {
     setGrid(updatedGrid);
   }
 
+  const colorAllUncolored = () => {
+    const newGrid = grid.map(row => row.map(cellColor => {
+      return cellColor === " " ? color : cellColor;
+    }));
+    setGrid(newGrid);
+    setCellsColored(true);
+  }
+
   return (
     <div className="game">
       <div className="menus">
@@ -105,6 +114,7 @@ export default function App() {
             <input id="colorPicker" type="color" className="hidden-color-picker" onInput={changeColor}/>
         </div>
         <button onClick={colorAll}>Color All Cells</button>
+        <button onClick={colorAllUncoloredCells}>Color All Uncolored</button>
       </div>
       <Grid grid={grid} onClick={onClickCell}/>
     </div>

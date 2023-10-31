@@ -101,6 +101,11 @@ export default function App() {
     setCellsColored(true);
   }
 
+  const removeColors = () => {
+    const newGrid = grid.map(row => row.map(() => " "));
+    setGrid(newGrid);
+  }
+
   return (
     <div className="game">
       <div className="menus">
@@ -114,7 +119,8 @@ export default function App() {
             <input id="colorPicker" type="color" className="hidden-color-picker" onInput={changeColor}/>
         </div>
         <button onClick={colorAll}>Color All Cells</button>
-        <button onClick={colorAllUncoloredCells}>Color All Uncolored</button>
+        <button onClick={colorAllUncolored}>Color All Uncolored</button>
+        <button onClick={removeColors}>Remove Color</button>
       </div>
       <Grid grid={grid} onClick={onClickCell}/>
     </div>

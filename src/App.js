@@ -5,9 +5,8 @@ function Grid({ grid, onClick }) {
     <div className="board">
       {grid.map((row, rowIndex) => (
         <div className="board-row" key={rowIndex}>
-          {row.map((cell, cellIndex) => (
-            <button className="square" key={cellIndex} onClick={onClick}>
-              {cell}
+          {row.map((cellColor, cellIndex) => (
+            <button className="square" key={cellIndex} style={{backgroundColor: cellColor}} onClick={() => onClick(rowIndex, cellIndex)}>
             </button>
           ))}
         </div>
@@ -82,8 +81,15 @@ export default function App() {
     colorPickerButton.style.color = luma < 128 ? 'white' : 'black';
   };
 
-  const onClickCell = (event) => {
-    event.target.style.backgroundColor = color;
+  const onClickCell = (rowIndex, cellIndex) => {
+    const newGrid =[...grid];
+    newGrid[rowIndex][cellIndex] = color;
+    setGrid(newGrid);
+  }
+
+  const colorAll = () => {
+    const updatedGrid = grid.map((row) => row.map(() => color));
+    setGrid(updatedGrid);
   }
 
   return (
@@ -96,10 +102,11 @@ export default function App() {
         <button onClick={removeColumn}>Remove Column</button>
         <div className="color-button-wrapper">
             <button id="colorPickerButton" className="color-button">Pick Color</button>
-            <input id="colorPicker" type="color" className="hidden-color-picker" onInput={changeColor} />
-        </div>  
+            <input id="colorPicker" type="color" className="hidden-color-picker" onInput={changeColor}/>
+        </div>
+        <button onClick={colorAll}>Color All Cells</button>
       </div>
-      <Grid grid={grid} onClick={onClickCell} />
+      <Grid grid={grid} onClick={onClickCell}/>
     </div>
   );
 }

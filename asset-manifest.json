@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Assignment-4-reactGridmaker/static/css/main.d960827c.css",
-    "main.js": "/Assignment-4-reactGridmaker/static/js/main.a43d0929.js",
+    "main.css": "/Assignment-4-reactGridmaker/static/css/main.2cf1e7ab.css",
+    "main.js": "/Assignment-4-reactGridmaker/static/js/main.217c4e97.js",
     "index.html": "/Assignment-4-reactGridmaker/index.html",
-    "main.d960827c.css.map": "/Assignment-4-reactGridmaker/static/css/main.d960827c.css.map",
-    "main.a43d0929.js.map": "/Assignment-4-reactGridmaker/static/js/main.a43d0929.js.map"
+    "main.2cf1e7ab.css.map": "/Assignment-4-reactGridmaker/static/css/main.2cf1e7ab.css.map",
+    "main.217c4e97.js.map": "/Assignment-4-reactGridmaker/static/js/main.217c4e97.js.map"
   },
   "entrypoints": [
-    "static/css/main.d960827c.css",
-    "static/js/main.a43d0929.js"
+    "static/css/main.2cf1e7ab.css",
+    "static/js/main.217c4e97.js"
   ]
 }

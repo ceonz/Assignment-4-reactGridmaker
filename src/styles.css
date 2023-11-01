@@ -101,8 +101,9 @@ body {
 .menus {
   display: flex;
   flex-direction: row;
-  align-items: center; 
-  justify-content: center; 
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   gap: 0.5rem;
 }
 
@@ -127,7 +128,8 @@ body {
   border-radius: 4px;
 }
 
-.menus button:hover, .color-button-wrapper:hover button  {
+.menus button:hover,
+.color-button-wrapper:hover button {
   background-color: #0056b3;
 }
 
